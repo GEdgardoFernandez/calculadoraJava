@@ -26,19 +26,15 @@ public class Calculadora {
         switch(operador){
             case '+':
                 resultado = numero1 + numero2;
-                System.out.println("La suma de: "+numero1+" y "+numero2+"es igual a: "+resultado);
                 break;
             case '-':
                 resultado = numero1 - numero2;
-                System.out.println("La resta de: "+numero1+ " y "+numero2+"es igual a: " +resultado);
                 break;
             case '*':
                 resultado = numero1 * numero2;
-                System.out.println(numero1 +"multiplicado por " +numero2 + "es iguala a: "+resultado);
                 break;
             case '/':
                 resultado = numero1 / numero2;
-                System.out.println(numero1+"dividido en "+numero2+"es igual a: "+resultado);
                 break;
                 
             default:

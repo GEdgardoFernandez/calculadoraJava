@@ -4,17 +4,25 @@
  */
 package calculadora;
 
+import java.util.Scanner;
+import java.util.Set;
+
 /**
  *
  * @author bff08
  */
 public class Calculator extends javax.swing.JFrame {
 
+    public String operador;
+    public Float numero1, numero2;
+
     /**
      * Creates new form Calculator
      */
     public Calculator() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setTitle("CalculaDora");
     }
 
     /**
@@ -46,6 +54,8 @@ public class Calculator extends javax.swing.JFrame {
         multi = new javax.swing.JButton();
         dividir = new javax.swing.JButton();
         resultado = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -63,93 +73,193 @@ public class Calculator extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         num7.setBackground(new java.awt.Color(102, 102, 102));
-        num7.setFont(new java.awt.Font("Eras Medium ITC", 1, 18)); // NOI18N
+        num7.setFont(new java.awt.Font("Eras Medium ITC", 1, 14)); // NOI18N
         num7.setForeground(new java.awt.Color(204, 204, 204));
         num7.setText("7");
+        num7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num7ActionPerformed(evt);
+            }
+        });
 
         num4.setBackground(new java.awt.Color(102, 102, 102));
-        num4.setFont(new java.awt.Font("Eras Medium ITC", 1, 18)); // NOI18N
+        num4.setFont(new java.awt.Font("Eras Medium ITC", 1, 14)); // NOI18N
         num4.setForeground(new java.awt.Color(204, 204, 204));
         num4.setText("4");
+        num4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num4ActionPerformed(evt);
+            }
+        });
 
         num1.setBackground(new java.awt.Color(102, 102, 102));
-        num1.setFont(new java.awt.Font("Eras Medium ITC", 1, 18)); // NOI18N
+        num1.setFont(new java.awt.Font("Eras Medium ITC", 1, 14)); // NOI18N
         num1.setForeground(new java.awt.Color(204, 204, 204));
         num1.setText("1");
+        num1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num1ActionPerformed(evt);
+            }
+        });
 
         num8.setBackground(new java.awt.Color(102, 102, 102));
-        num8.setFont(new java.awt.Font("Eras Medium ITC", 1, 18)); // NOI18N
+        num8.setFont(new java.awt.Font("Eras Medium ITC", 1, 14)); // NOI18N
         num8.setForeground(new java.awt.Color(204, 204, 204));
         num8.setText("8");
+        num8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num8ActionPerformed(evt);
+            }
+        });
 
         num2.setBackground(new java.awt.Color(102, 102, 102));
-        num2.setFont(new java.awt.Font("Eras Medium ITC", 1, 18)); // NOI18N
+        num2.setFont(new java.awt.Font("Eras Medium ITC", 1, 14)); // NOI18N
         num2.setForeground(new java.awt.Color(204, 204, 204));
         num2.setText("2");
+        num2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num2ActionPerformed(evt);
+            }
+        });
 
         num5.setBackground(new java.awt.Color(102, 102, 102));
-        num5.setFont(new java.awt.Font("Eras Medium ITC", 1, 18)); // NOI18N
+        num5.setFont(new java.awt.Font("Eras Medium ITC", 1, 14)); // NOI18N
         num5.setForeground(new java.awt.Color(204, 204, 204));
         num5.setText("5");
+        num5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num5ActionPerformed(evt);
+            }
+        });
 
         num9.setBackground(new java.awt.Color(102, 102, 102));
-        num9.setFont(new java.awt.Font("Eras Medium ITC", 1, 18)); // NOI18N
+        num9.setFont(new java.awt.Font("Eras Medium ITC", 1, 14)); // NOI18N
         num9.setForeground(new java.awt.Color(204, 204, 204));
         num9.setText("9");
+        num9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num9ActionPerformed(evt);
+            }
+        });
 
         num3.setBackground(new java.awt.Color(102, 102, 102));
-        num3.setFont(new java.awt.Font("Eras Medium ITC", 1, 18)); // NOI18N
+        num3.setFont(new java.awt.Font("Eras Medium ITC", 1, 14)); // NOI18N
         num3.setForeground(new java.awt.Color(204, 204, 204));
         num3.setText("3");
+        num3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num3ActionPerformed(evt);
+            }
+        });
 
         num6.setBackground(new java.awt.Color(102, 102, 102));
-        num6.setFont(new java.awt.Font("Eras Medium ITC", 1, 18)); // NOI18N
+        num6.setFont(new java.awt.Font("Eras Medium ITC", 1, 14)); // NOI18N
         num6.setForeground(new java.awt.Color(204, 204, 204));
         num6.setText("6");
+        num6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num6ActionPerformed(evt);
+            }
+        });
 
         num0.setBackground(new java.awt.Color(102, 102, 102));
-        num0.setFont(new java.awt.Font("Eras Medium ITC", 1, 18)); // NOI18N
+        num0.setFont(new java.awt.Font("Eras Medium ITC", 1, 14)); // NOI18N
         num0.setForeground(new java.awt.Color(204, 204, 204));
         num0.setText("0");
+        num0.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                num0InputMethodTextChanged(evt);
+            }
+        });
+        num0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                num0ActionPerformed(evt);
+            }
+        });
+        num0.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                num0KeyPressed(evt);
+            }
+        });
 
         coma.setBackground(new java.awt.Color(102, 102, 102));
-        coma.setFont(new java.awt.Font("Eras Medium ITC", 1, 18)); // NOI18N
+        coma.setFont(new java.awt.Font("Eras Medium ITC", 1, 14)); // NOI18N
         coma.setForeground(new java.awt.Color(204, 204, 204));
         coma.setText(",");
+        coma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comaActionPerformed(evt);
+            }
+        });
 
         punto.setBackground(new java.awt.Color(102, 102, 102));
-        punto.setFont(new java.awt.Font("Eras Medium ITC", 1, 18)); // NOI18N
+        punto.setFont(new java.awt.Font("Eras Medium ITC", 1, 14)); // NOI18N
         punto.setForeground(new java.awt.Color(204, 204, 204));
         punto.setText(".");
+        punto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                puntoActionPerformed(evt);
+            }
+        });
 
         visoreventos.setBackground(new java.awt.Color(0, 0, 0));
         visoreventos.setForeground(new java.awt.Color(204, 255, 255));
-        visoreventos.setText("0");
 
         sumar.setBackground(new java.awt.Color(153, 0, 0));
         sumar.setFont(new java.awt.Font("Eras Medium ITC", 1, 18)); // NOI18N
         sumar.setForeground(new java.awt.Color(255, 204, 204));
         sumar.setText("+");
+        sumar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sumarActionPerformed(evt);
+            }
+        });
 
         restar.setBackground(new java.awt.Color(153, 0, 0));
         restar.setFont(new java.awt.Font("Eras Medium ITC", 1, 18)); // NOI18N
         restar.setForeground(new java.awt.Color(255, 204, 204));
         restar.setText("-");
+        restar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                restarActionPerformed(evt);
+            }
+        });
 
         multi.setBackground(new java.awt.Color(153, 0, 0));
         multi.setFont(new java.awt.Font("Eras Medium ITC", 1, 18)); // NOI18N
         multi.setForeground(new java.awt.Color(255, 204, 204));
         multi.setText("*");
+        multi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                multiActionPerformed(evt);
+            }
+        });
 
         dividir.setBackground(new java.awt.Color(153, 0, 0));
         dividir.setFont(new java.awt.Font("Eras Medium ITC", 1, 18)); // NOI18N
         dividir.setForeground(new java.awt.Color(255, 204, 204));
         dividir.setText("/");
+        dividir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dividirActionPerformed(evt);
+            }
+        });
 
         resultado.setBackground(new java.awt.Color(153, 255, 153));
         resultado.setFont(new java.awt.Font("Eras Medium ITC", 1, 18)); // NOI18N
         resultado.setForeground(new java.awt.Color(51, 51, 51));
         resultado.setText("=");
+        resultado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resultadoActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("CE");
+
+        jButton2.setText("C");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -159,7 +269,7 @@ public class Calculator extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(num4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -185,7 +295,11 @@ public class Calculator extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(num8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(num9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(num9, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(multi, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -201,9 +315,20 @@ public class Calculator extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(visoreventos, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(sumar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(restar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(multi, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dividir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(num7, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(num8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -222,22 +347,139 @@ public class Calculator extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(num0, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(punto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(coma, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(sumar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(restar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(multi, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(dividir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(coma, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void num0InputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_num0InputMethodTextChanged
+        // TODO add your handling code here:
+        Scanner entrada = new Scanner(System.in);
+        Double num0;
+        num0 = entrada.nextDouble();
+    }//GEN-LAST:event_num0InputMethodTextChanged
+
+    private void num0KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num0KeyPressed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_num0KeyPressed
+
+    private void num1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num1ActionPerformed
+        // TODO add your handling code here:
+        visoreventos.setText(visoreventos.getText() + "1");
+
+    }//GEN-LAST:event_num1ActionPerformed
+
+    private void num2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num2ActionPerformed
+        // TODO add your handling code here:
+        visoreventos.setText(visoreventos.getText() + "2");
+    }//GEN-LAST:event_num2ActionPerformed
+
+    private void num3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num3ActionPerformed
+        // TODO add your handling code here:
+        visoreventos.setText(visoreventos.getText() + "3");
+    }//GEN-LAST:event_num3ActionPerformed
+
+    private void num4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num4ActionPerformed
+        // TODO add your handling code here:
+        visoreventos.setText(visoreventos.getText() + "4");
+    }//GEN-LAST:event_num4ActionPerformed
+
+    private void num5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num5ActionPerformed
+        // TODO add your handling code here:
+        visoreventos.setText(visoreventos.getText() + "5");
+    }//GEN-LAST:event_num5ActionPerformed
+
+    private void num6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num6ActionPerformed
+        // TODO add your handling code here:
+        visoreventos.setText(visoreventos.getText() + "6");
+    }//GEN-LAST:event_num6ActionPerformed
+
+    private void num7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num7ActionPerformed
+        // TODO add your handling code here:
+        visoreventos.setText(visoreventos.getText() + "7");
+    }//GEN-LAST:event_num7ActionPerformed
+
+    private void num8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num8ActionPerformed
+        // TODO add your handling code here:
+        visoreventos.setText(visoreventos.getText() + "8");
+    }//GEN-LAST:event_num8ActionPerformed
+
+    private void num9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num9ActionPerformed
+        // TODO add your handling code here:
+        visoreventos.setText(visoreventos.getText() + "9");
+    }//GEN-LAST:event_num9ActionPerformed
+
+    private void num0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_num0ActionPerformed
+        // TODO add your handling code here:
+        visoreventos.setText(visoreventos.getText() + "0");
+    }//GEN-LAST:event_num0ActionPerformed
+
+    private void comaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comaActionPerformed
+        // TODO add your handling code here:
+        visoreventos.setText(visoreventos.getText() + ",");
+    }//GEN-LAST:event_comaActionPerformed
+
+    private void puntoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_puntoActionPerformed
+        // TODO add your handling code here:
+        visoreventos.setText(visoreventos.getText() + ".");
+    }//GEN-LAST:event_puntoActionPerformed
+
+    private void sumarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumarActionPerformed
+        // TODO add your handling code here:
+        numero1 = Float.parseFloat(visoreventos.getText());
+        operador = "+";
+        visoreventos.setText("");
+    }//GEN-LAST:event_sumarActionPerformed
+
+    private void restarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restarActionPerformed
+        // TODO add your handling code here:
+        numero1 = Float.parseFloat(visoreventos.getText());
+        operador = "-";
+        visoreventos.setText("");
+    }//GEN-LAST:event_restarActionPerformed
+
+    private void multiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiActionPerformed
+        // TODO add your handling code here:
+        numero1 = Float.parseFloat(visoreventos.getText());
+        operador = "*";
+        visoreventos.setText("");
+    }//GEN-LAST:event_multiActionPerformed
+
+    private void dividirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dividirActionPerformed
+        // TODO add your handling code here:
+        numero1 = Float.parseFloat(visoreventos.getText());
+        operador = "/";
+        visoreventos.setText("");
+    }//GEN-LAST:event_dividirActionPerformed
+
+    private void resultadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resultadoActionPerformed
+        // TODO add your handling code here:
+        numero2 = Float.parseFloat(visoreventos.getText());
+
+        switch (operador) {
+            case "+": 
+                visoreventos.setText(Float.toString(numero1+numero2));
+                break;
+            case "-":
+                visoreventos.setText(Float.toString(numero1-numero2));
+                break;
+            case "*":
+                visoreventos.setText(Float.toString(numero1*numero2));
+                break;
+            case "/":
+                visoreventos.setText(Float.toString(numero1/numero2));
+                break;
+            default:
+                break;
+        }
+    }//GEN-LAST:event_resultadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,6 +519,8 @@ public class Calculator extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton coma;
     private javax.swing.JButton dividir;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JButton multi;
